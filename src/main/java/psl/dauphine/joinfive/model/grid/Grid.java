@@ -147,6 +147,7 @@ public class Grid {
     public void deletePoint(int x, int y) {
         grid[x][y] = null;
     }
+
     public Collection<Point> getNeighbors(Point point) {
         List<Point> neighbors = new ArrayList<>();
         for (int i = -1; i <= 1; i++) {
