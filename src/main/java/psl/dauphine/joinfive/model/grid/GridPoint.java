@@ -1,4 +1,4 @@
-package psl.dauphine.java.joinfive.model.grid;
+package psl.dauphine.joinfive.model.grid;
 
 import java.util.HashSet;
 import java.util.Set;

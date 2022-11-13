@@ -1,9 +1,9 @@
-package psl.dauphine.java.joinfive.view;
+package psl.dauphine.joinfive.view;
 
-import psl.dauphine.java.joinfive.util.GameObserver;
-import psl.dauphine.java.joinfive.model.grid.Grid;
-import psl.dauphine.java.joinfive.model.grid.Line;
-import psl.dauphine.java.joinfive.model.grid.Point;
+import psl.dauphine.joinfive.util.GameObserver;
+import psl.dauphine.joinfive.model.grid.Grid;
+import psl.dauphine.joinfive.model.grid.Line;
+import psl.dauphine.joinfive.model.grid.Point;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;

@@ -3,18 +3,18 @@ module com.example.joinfive {
     requires javafx.fxml;
 
 
-    opens psl.dauphine.java.joinfive to javafx.fxml;
-    exports psl.dauphine.java.joinfive;
-    exports psl.dauphine.java.joinfive.model;
-    opens psl.dauphine.java.joinfive.model to javafx.fxml;
-    exports psl.dauphine.java.joinfive.model.grid;
-    opens psl.dauphine.java.joinfive.model.grid to javafx.fxml;
-    exports psl.dauphine.java.joinfive.model.ai;
-    opens psl.dauphine.java.joinfive.model.ai to javafx.fxml;
-    exports psl.dauphine.java.joinfive.controller;
-    opens psl.dauphine.java.joinfive.controller to javafx.fxml;
-    exports psl.dauphine.java.joinfive.view;
-    opens psl.dauphine.java.joinfive.view to javafx.fxml;
-    exports psl.dauphine.java.joinfive.util;
-    opens psl.dauphine.java.joinfive.util to javafx.fxml;
+    opens psl.dauphine.joinfive to javafx.fxml;
+    exports psl.dauphine.joinfive;
+    exports psl.dauphine.joinfive.model;
+    opens psl.dauphine.joinfive.model to javafx.fxml;
+    exports psl.dauphine.joinfive.model.grid;
+    opens psl.dauphine.joinfive.model.grid to javafx.fxml;
+    exports psl.dauphine.joinfive.model.ai;
+    opens psl.dauphine.joinfive.model.ai to javafx.fxml;
+    exports psl.dauphine.joinfive.controller;
+    opens psl.dauphine.joinfive.controller to javafx.fxml;
+    exports psl.dauphine.joinfive.view;
+    opens psl.dauphine.joinfive.view to javafx.fxml;
+    exports psl.dauphine.joinfive.util;
+    opens psl.dauphine.joinfive.util to javafx.fxml;
 }

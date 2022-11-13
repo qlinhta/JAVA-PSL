@@ -1,4 +1,4 @@
-package psl.dauphine.java.joinfive.model.grid;
+package psl.dauphine.joinfive.model.grid;
 
 public class Point {
 

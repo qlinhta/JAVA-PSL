@@ -1,8 +1,8 @@
-package psl.dauphine.java.joinfive.model.grid;
+package psl.dauphine.joinfive.model.grid;
 
 import java.util.*;
 
-import static psl.dauphine.java.joinfive.model.grid.Direction.*;
+import static psl.dauphine.joinfive.model.grid.Direction.*;
 
 public class Grid {
     private GridPoint[][] grid;

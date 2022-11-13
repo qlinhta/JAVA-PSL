@@ -1,7 +1,7 @@
-package psl.dauphine.java.joinfive;
+package psl.dauphine.joinfive;
 
-import psl.dauphine.java.joinfive.controller.JoinFiveController;
-import psl.dauphine.java.joinfive.model.GameModel;
+import psl.dauphine.joinfive.controller.JoinFiveController;
+import psl.dauphine.joinfive.model.GameModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
