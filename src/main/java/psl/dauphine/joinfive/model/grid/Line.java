@@ -38,7 +38,8 @@ public class Line {
         points.add(point);
     }
 
-    public String toString() {
+    @Override
+	public String toString() {
         return newPoint + "-" + direction + ": " + points.toString();
     }
 

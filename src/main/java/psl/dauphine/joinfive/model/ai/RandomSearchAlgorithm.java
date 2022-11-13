@@ -20,6 +20,6 @@ public class RandomSearchAlgorithm implements JoinFiveAlgorithm {
                     possibleLines.addAll(grid.possibleLines(point.x, point.y));
                 }));
         if (possibleLines.isEmpty()) return null;
-        else return possibleLines.get((int) (Math.random() * possibleLines.size()));
+		return possibleLines.get((int) (Math.random() * possibleLines.size()));
     }
 }
