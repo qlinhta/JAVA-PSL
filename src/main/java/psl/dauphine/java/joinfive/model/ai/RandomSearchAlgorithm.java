@@ -1,8 +1,8 @@
-package com.example.joinfive.model.ai;
+package psl.dauphine.java.joinfive.model.ai;
 
-import com.example.joinfive.model.grid.Grid;
-import com.example.joinfive.model.grid.Line;
-import com.example.joinfive.model.grid.Point;
+import psl.dauphine.java.joinfive.model.grid.Grid;
+import psl.dauphine.java.joinfive.model.grid.Line;
+import psl.dauphine.java.joinfive.model.grid.Point;
 
 import java.util.ArrayList;
 import java.util.HashSet;

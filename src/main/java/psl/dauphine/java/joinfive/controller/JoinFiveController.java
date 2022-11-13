@@ -1,8 +1,8 @@
-package com.example.joinfive.controller;
+package psl.dauphine.java.joinfive.controller;
 
-import com.example.joinfive.model.ai.AlgorithmFactory;
-import com.example.joinfive.view.GameCanvasView;
-import com.example.joinfive.model.GameModel;
+import psl.dauphine.java.joinfive.model.ai.AlgorithmFactory;
+import psl.dauphine.java.joinfive.view.GameCanvasView;
+import psl.dauphine.java.joinfive.model.GameModel;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ComboBox;

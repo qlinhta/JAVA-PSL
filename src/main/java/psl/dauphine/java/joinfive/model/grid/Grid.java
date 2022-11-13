@@ -1,10 +1,8 @@
-package com.example.joinfive.model.grid;
-
-import com.example.joinfive.util.GameObserver;
+package psl.dauphine.java.joinfive.model.grid;
 
 import java.util.*;
 
-import static com.example.joinfive.model.grid.Direction.*;
+import static psl.dauphine.java.joinfive.model.grid.Direction.*;
 
 public class Grid {
     private GridPoint[][] grid;

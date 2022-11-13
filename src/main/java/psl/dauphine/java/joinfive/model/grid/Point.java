@@ -1,7 +1,4 @@
-package com.example.joinfive.model.grid;
-
-import java.util.HashSet;
-import java.util.Set;
+package psl.dauphine.java.joinfive.model.grid;
 
 public class Point {
 

@@ -1,4 +1,4 @@
-package com.example.joinfive.model.ai;
+package psl.dauphine.java.joinfive.model.ai;
 
 import java.util.List;
 

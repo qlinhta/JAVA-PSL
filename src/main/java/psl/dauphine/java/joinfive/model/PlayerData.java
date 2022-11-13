@@ -1,4 +1,4 @@
-package com.example.joinfive.model;
+package psl.dauphine.java.joinfive.model;
 
 public class PlayerData {
     private String name;

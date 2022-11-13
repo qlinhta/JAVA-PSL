@@ -1,6 +1,6 @@
-import com.example.joinfive.model.grid.Direction;
-import com.example.joinfive.model.grid.Grid;
-import com.example.joinfive.model.grid.Line;
+import psl.dauphine.java.joinfive.model.grid.Direction;
+import psl.dauphine.java.joinfive.model.grid.Grid;
+import psl.dauphine.java.joinfive.model.grid.Line;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
