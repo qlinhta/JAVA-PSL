@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="923.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.joinfive.controller.JoinFiveController">
+   <bottom>
+      <AnchorPane prefHeight="38.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="historyButton" layoutX="855.0" layoutY="7.0" mnemonicParsing="false" onAction="#displayHistory" text="History" />
+            <Button fx:id="bestScoreButton" layoutX="774.0" layoutY="7.0" mnemonicParsing="false" onAction="#displayBestGrid" text="Best Score" />
+            <ComboBox fx:id="algorithmOptions" layoutX="557.0" layoutY="7.0" prefHeight="25.0" prefWidth="99.0" />
+            <ComboBox fx:id="playerOptions" layoutX="243.0" layoutY="7.0" onAction="#playerChanged" prefHeight="25.0" prefWidth="99.0" />
+            <Label layoutX="14.0" layoutY="11.0" text="Username" />
+            <Label layoutX="203.0" layoutY="10.0" text="Player" />
+            <Label layoutX="493.0" layoutY="11.0" text="Algorithm" />
+            <TextField fx:id="usernameField" layoutX="75.0" layoutY="7.0" prefHeight="25.0" prefWidth="110.0" />
+            <Button fx:id="bestScoreButton1" layoutX="680.0" layoutY="6.0" mnemonicParsing="false" onAction="#displayBestGrid" prefHeight="26.0" prefWidth="80.0" text="New Game" />
+            <ComboBox fx:id="playerOptions1" layoutX="429.0" layoutY="6.0" onAction="#gameModeChanged" prefHeight="26.0" prefWidth="49.0" />
+            <Label layoutX="356.0" layoutY="11.0" text="Game mode" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Canvas fx:id="gameCanvas" height="171.0" onMousePressed="#canvasMousePressed" width="697.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
