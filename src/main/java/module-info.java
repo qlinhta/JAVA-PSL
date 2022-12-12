@@ -1,4 +1,4 @@
-module com.example.joinfive {
+module psl.dauphine.mpsl {
     requires javafx.controls;
     requires javafx.fxml;
 
