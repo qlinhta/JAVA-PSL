@@ -1,7 +1,15 @@
 package psl.dauphine.mpsl.base.grid;
 
-public class Point {
+import java.io.Serializable;
 
+/**
+ * A simple custom implementation of Point
+ */
+public class Point implements Serializable {
+
+    /**
+     * Coordinates
+     */
     public final int x, y;
 
     private int hash;
@@ -14,7 +22,6 @@ public class Point {
     public String toString() {
         return String.format("(%d,%d)", x, y);
     }
-
 
     public boolean equals(Object other) {
         if (other.getClass() != getClass())

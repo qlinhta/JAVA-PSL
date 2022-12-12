@@ -1,24 +1,31 @@
 package psl.dauphine.mpsl.base.grid;
 
-import static psl.dauphine.mpsl.base.grid.Direction.*;
-
+import java.io.Serializable;
 import java.util.*;
 
-public class Grid {
-    private GridPoint[][] grid;
+/**
+ * The Game grid
+ *
+ * @Todo write documentation
+ */
+public class Grid implements Serializable {
+    private final GridPoint[][] grid;
 
     public Set<Point> points() {
-        return points;
+        return Collections.unmodifiableSet(points);
     }
 
-    private Set<Point> points;
+    private final Set<Point> points;
 
-    private List<Line> lines;
+    private final List<Line> lines;
 
-    public Grid(int width, int height) {
+    private Mode mode;
+
+    public Grid(int width, int height, Mode mode) {
         this.grid = new GridPoint[width][height];
         lines = new ArrayList<>();
         points = new HashSet<>();
+        this.mode = mode;
     }
 
     public void initPoint(int x, int y) {
@@ -28,17 +35,29 @@ public class Grid {
         }
     }
 
+    public List<Line> possibleLines() {
+        HashSet<Point> pointsSoFar = new HashSet<>();
+        List<Line> possibleLines = new ArrayList<>();
+        points.forEach(gridPoint -> getNeighbors(gridPoint).stream()
+                .filter(point -> !pointsSoFar.contains(gridPoint))
+                .forEach(point -> {
+                    pointsSoFar.add(point);
+                    possibleLines.addAll(possibleLines(point.x, point.y));
+                }));
+        return possibleLines;
+    }
+
     public List<Line> possibleLines(int x, int y) {
-        if (grid[x][y] != null) {
+        if (!isValidX(x) || !isValidY(y) || grid[x][y] != null) {
+//            System.out.println(grid[x][y]);
             return new ArrayList<>();
         }
         ArrayList<Line> possibleLines = new ArrayList<>();
-        for (Direction direction : values()) {
+        for (Direction direction : Direction.values()) {
             possibleLines.addAll(possibleLines(x, y, direction));
         }
         return possibleLines;
     }
-
 
     public List<Line> possibleLines(int x, int y, Direction direction) {
         if (grid[x][y] != null) {
@@ -58,8 +77,17 @@ public class Grid {
             }
         }
         ArrayList<Line> possibleLines = new ArrayList<>();
+        int numLocksAllowed = 0;
+        switch (mode) {
+            case FIVE_T -> numLocksAllowed = 1;
+            case FIVE_D -> numLocksAllowed = 0;
+        }
         for (int i = -4; i <= 0; i++) {
             Line line = new Line();
+            switch (mode) {
+                case FIVE_T -> numLocksAllowed = 1;
+                case FIVE_D -> numLocksAllowed = 0;
+            }
             for (int j = 0; j < 5; j++) {
                 int x2 = x + dirX * (i + j);
                 int y2 = y + dirY * (i + j);
@@ -73,6 +101,14 @@ public class Grid {
                     Point p = new Point(x2, y2);
                     line.addPoint(p);
                     line.setNewPoint(p);
+                } else if (grid[x2][y2] != null) {
+                    if (numLocksAllowed == 0) {
+                        line = null;
+                        break;
+                    } else {
+                        line.addPoint(new Point(x2, y2));
+                        numLocksAllowed--;
+                    }
                 } else {
                     line = null;
                     break;
@@ -82,7 +118,7 @@ public class Grid {
                 line.setDirection(direction);
                 possibleLines.add(line);
             }
-            System.out.println();
+//            System.out.println();
         }
         return possibleLines;
     }
@@ -115,7 +151,7 @@ public class Grid {
                 initPoint(startX + i, startY + j);
             }
         }
-        System.out.println(lines);
+//        System.out.println(lines);
     }
 
     public void addLine(List<Point> points, Direction direction) {
@@ -132,20 +168,21 @@ public class Grid {
 
     public void addLine(Line line) {
         line.setNumber(lines.size() + 1);
-        for (Point point : line.points()) {
-            System.out.println("CHECKING " + point);
+        //            System.out.println("CHECKING " + point);
+        line.points().forEach(point -> {
             if (grid[point.x][point.y] == null) {
-                System.out.println("FOUND " + point);
+//                System.out.println("FOUND " + point);
                 initPoint(point.x, point.y);
                 line.setNewPoint(grid[point.x][point.y]);
             }
             grid[point.x][point.y].lock(line.getDirection());
-        }
+        });
         lines.add(line);
     }
 
-    public void deletePoint(int x, int y) {
-        grid[x][y] = null;
+    public void deletePoint(Point point) {
+        grid[point.x][point.y] = null;
+        points.remove(point);
     }
 
     public Collection<Point> getNeighbors(Point point) {
@@ -164,6 +201,38 @@ public class Grid {
     }
 
     public List<Line> lines() {
-        return lines;
+        return Collections.unmodifiableList(lines);
+    }
+
+    public Mode getMode(Mode mode) {
+        return mode;
+    }
+
+    public void setMode(Mode mode) {
+        this.mode = mode;
+    }
+
+    public Grid copy() {
+        Grid copy = new Grid(width(), height(), mode);
+        for (int i = 0; i < width(); i++) {
+            for (int j = 0; j < height(); j++) {
+                if (grid[i][j] == null) continue;
+                copy.grid[i][j] = grid[i][j].copy();
+            }
+        }
+        copy.lines.addAll(lines.stream().map(Line::copy).toList());
+        copy.points.addAll(points);
+        return copy;
+    }
+
+    public void undoLine() {
+        Line line = lines.get(lines.size()-1);
+        deletePoint(line.getNewPoint());
+        for (Point point : line.points()) {
+            if(grid[point.x][point.y] !=null) {
+                grid[point.x][point.y].unlock(line.getDirection());
+            }
+        }
+        lines.remove(line);
     }
 }
