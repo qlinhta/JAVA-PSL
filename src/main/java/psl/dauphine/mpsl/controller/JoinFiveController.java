@@ -1,14 +1,13 @@
-package psl.dauphine.joinfive.controller;
+package psl.dauphine.mpsl.controller;
 
-import psl.dauphine.joinfive.model.ai.AlgorithmFactory;
-import psl.dauphine.joinfive.view.GameCanvasView;
-import psl.dauphine.joinfive.model.GameModel;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
+import psl.dauphine.mpsl.model.GameModel;
+import psl.dauphine.mpsl.model.ai.AlgorithmFactory;
+import psl.dauphine.mpsl.view.GameCanvasView;
 import java.util.Objects;
 
 public class JoinFiveController {

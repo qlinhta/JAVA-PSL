@@ -1,4 +1,4 @@
-package psl.dauphine.joinfive.model.grid;
+package psl.dauphine.mpsl.model.grid;
 
 import java.util.ArrayList;
 import java.util.Collection;

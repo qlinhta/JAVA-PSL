@@ -1,4 +1,4 @@
-package psl.dauphine.joinfive.model.grid;
+package psl.dauphine.mpsl.model.grid;
 
 public enum Direction {
     HORIZONTAL, VERTICAL, FALL, RISE

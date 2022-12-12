@@ -1,13 +1,12 @@
-package psl.dauphine.joinfive.view;
+package psl.dauphine.mpsl.view;
 
-import psl.dauphine.joinfive.util.GameObserver;
-import psl.dauphine.joinfive.model.grid.Grid;
-import psl.dauphine.joinfive.model.grid.Line;
-import psl.dauphine.joinfive.model.grid.Point;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
+import psl.dauphine.mpsl.model.grid.Grid;
+import psl.dauphine.mpsl.model.grid.Line;
+import psl.dauphine.mpsl.model.grid.Point;
+import psl.dauphine.mpsl.util.GameObserver;
 import java.util.List;
 
 public class GameCanvasView implements GameObserver {

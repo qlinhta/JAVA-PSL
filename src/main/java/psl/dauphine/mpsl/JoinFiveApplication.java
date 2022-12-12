@@ -1,12 +1,11 @@
-package psl.dauphine.joinfive;
+package psl.dauphine.mpsl;
 
-import psl.dauphine.joinfive.controller.JoinFiveController;
-import psl.dauphine.joinfive.model.GameModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import psl.dauphine.mpsl.controller.JoinFiveController;
+import psl.dauphine.mpsl.model.GameModel;
 import java.io.IOException;
 
 public class JoinFiveApplication extends Application {

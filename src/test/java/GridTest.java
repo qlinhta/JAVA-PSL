@@ -1,8 +1,7 @@
-import psl.dauphine.joinfive.model.grid.Direction;
-import psl.dauphine.joinfive.model.grid.Grid;
-import psl.dauphine.joinfive.model.grid.Line;
 import org.junit.jupiter.api.Test;
-
+import psl.dauphine.mpsl.model.grid.Direction;
+import psl.dauphine.mpsl.model.grid.Grid;
+import psl.dauphine.mpsl.model.grid.Line;
 import java.util.List;
 
 public class GridTest {

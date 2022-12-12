@@ -1,13 +1,12 @@
-package psl.dauphine.joinfive.model;
-
-import psl.dauphine.joinfive.util.GameObserver;
-import psl.dauphine.joinfive.model.ai.JoinFiveAlgorithm;
-import psl.dauphine.joinfive.model.grid.Grid;
-import psl.dauphine.joinfive.model.grid.Line;
-import psl.dauphine.joinfive.model.grid.Point;
+package psl.dauphine.mpsl.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import psl.dauphine.mpsl.model.ai.JoinFiveAlgorithm;
+import psl.dauphine.mpsl.model.grid.Grid;
+import psl.dauphine.mpsl.model.grid.Line;
+import psl.dauphine.mpsl.model.grid.Point;
+import psl.dauphine.mpsl.util.GameObserver;
 
 public class GameModel {
 

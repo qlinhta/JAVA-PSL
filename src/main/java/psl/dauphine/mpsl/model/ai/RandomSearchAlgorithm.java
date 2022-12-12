@@ -1,12 +1,11 @@
-package psl.dauphine.joinfive.model.ai;
-
-import psl.dauphine.joinfive.model.grid.Grid;
-import psl.dauphine.joinfive.model.grid.Line;
-import psl.dauphine.joinfive.model.grid.Point;
+package psl.dauphine.mpsl.model.ai;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import psl.dauphine.mpsl.model.grid.Grid;
+import psl.dauphine.mpsl.model.grid.Line;
+import psl.dauphine.mpsl.model.grid.Point;
 
 public class RandomSearchAlgorithm implements JoinFiveAlgorithm {
     @Override
