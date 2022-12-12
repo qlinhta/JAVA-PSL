@@ -1,11 +1,11 @@
-package psl.dauphine.mpsl.model;
+package psl.dauphine.mpsl.base;
 
 import java.util.ArrayList;
 import java.util.List;
-import psl.dauphine.mpsl.model.ai.JoinFiveAlgorithm;
-import psl.dauphine.mpsl.model.grid.Grid;
-import psl.dauphine.mpsl.model.grid.Line;
-import psl.dauphine.mpsl.model.grid.Point;
+import psl.dauphine.mpsl.base.algorithms.JoinFiveAlgorithm;
+import psl.dauphine.mpsl.base.grid.Grid;
+import psl.dauphine.mpsl.base.grid.Line;
+import psl.dauphine.mpsl.base.grid.Point;
 import psl.dauphine.mpsl.util.GameObserver;
 
 public class GameModel {

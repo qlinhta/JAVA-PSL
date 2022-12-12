@@ -1,6 +1,6 @@
-package psl.dauphine.mpsl.model.grid;
+package psl.dauphine.mpsl.base.grid;
 
-import static psl.dauphine.mpsl.model.grid.Direction.*;
+import static psl.dauphine.mpsl.base.grid.Direction.*;
 
 import java.util.*;
 

@@ -5,12 +5,12 @@ module com.example.joinfive {
 
     opens psl.dauphine.mpsl to javafx.fxml;
     exports psl.dauphine.mpsl;
-    exports psl.dauphine.mpsl.model;
-    opens psl.dauphine.mpsl.model to javafx.fxml;
-    exports psl.dauphine.mpsl.model.grid;
-    opens psl.dauphine.mpsl.model.grid to javafx.fxml;
-    exports psl.dauphine.mpsl.model.ai;
-    opens psl.dauphine.mpsl.model.ai to javafx.fxml;
+    exports psl.dauphine.mpsl.base;
+    opens psl.dauphine.mpsl.base to javafx.fxml;
+    exports psl.dauphine.mpsl.base.grid;
+    opens psl.dauphine.mpsl.base.grid to javafx.fxml;
+    exports psl.dauphine.mpsl.base.algorithms;
+    opens psl.dauphine.mpsl.base.algorithms to javafx.fxml;
     exports psl.dauphine.mpsl.controller;
     opens psl.dauphine.mpsl.controller to javafx.fxml;
     exports psl.dauphine.mpsl.view;

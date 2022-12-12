@@ -1,7 +1,7 @@
-package psl.dauphine.mpsl.model.ai;
+package psl.dauphine.mpsl.base.algorithms;
 
-import psl.dauphine.mpsl.model.grid.Grid;
-import psl.dauphine.mpsl.model.grid.Line;
+import psl.dauphine.mpsl.base.grid.Grid;
+import psl.dauphine.mpsl.base.grid.Line;
 
 public class NestedMonteCarloSearchAlgorithm implements JoinFiveAlgorithm {
     @Override

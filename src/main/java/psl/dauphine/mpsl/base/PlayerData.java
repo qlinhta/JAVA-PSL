@@ -1,4 +1,4 @@
-package psl.dauphine.mpsl.model;
+package psl.dauphine.mpsl.base;
 
 public class PlayerData {
     private String name;

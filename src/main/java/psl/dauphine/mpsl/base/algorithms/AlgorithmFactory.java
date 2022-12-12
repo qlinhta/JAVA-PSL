@@ -1,4 +1,4 @@
-package psl.dauphine.mpsl.model.ai;
+package psl.dauphine.mpsl.base.algorithms;
 
 import java.util.List;
 

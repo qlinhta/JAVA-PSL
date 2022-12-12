@@ -1,4 +1,4 @@
-package psl.dauphine.mpsl.model.grid;
+package psl.dauphine.mpsl.base.grid;
 
 import java.util.HashSet;
 import java.util.Set;

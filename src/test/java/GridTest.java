@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
-import psl.dauphine.mpsl.model.grid.Direction;
-import psl.dauphine.mpsl.model.grid.Grid;
-import psl.dauphine.mpsl.model.grid.Line;
+import psl.dauphine.mpsl.base.grid.Direction;
+import psl.dauphine.mpsl.base.grid.Grid;
+import psl.dauphine.mpsl.base.grid.Line;
 import java.util.List;
 
 public class GridTest {

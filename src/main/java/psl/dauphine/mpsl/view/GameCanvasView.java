@@ -3,9 +3,9 @@ package psl.dauphine.mpsl.view;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import psl.dauphine.mpsl.model.grid.Grid;
-import psl.dauphine.mpsl.model.grid.Line;
-import psl.dauphine.mpsl.model.grid.Point;
+import psl.dauphine.mpsl.base.grid.Grid;
+import psl.dauphine.mpsl.base.grid.Line;
+import psl.dauphine.mpsl.base.grid.Point;
 import psl.dauphine.mpsl.util.GameObserver;
 import java.util.List;
 

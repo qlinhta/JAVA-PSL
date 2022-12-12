@@ -5,8 +5,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import psl.dauphine.mpsl.model.GameModel;
-import psl.dauphine.mpsl.model.ai.AlgorithmFactory;
+import psl.dauphine.mpsl.base.GameModel;
+import psl.dauphine.mpsl.base.algorithms.AlgorithmFactory;
 import psl.dauphine.mpsl.view.GameCanvasView;
 import java.util.Objects;
 

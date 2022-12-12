@@ -1,4 +1,4 @@
-package psl.dauphine.mpsl.model.grid;
+package psl.dauphine.mpsl.base.grid;
 
 public class Point {
 
