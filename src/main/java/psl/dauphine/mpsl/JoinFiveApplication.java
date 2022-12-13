@@ -20,7 +20,7 @@ public class JoinFiveApplication extends Application {
         GameModel gameModel = new GameModel();
         controller.setModel(gameModel);
         controller.start();
-        stage.setTitle("Join Five Game");
+        stage.setTitle("Morpion Solitaire");
         stage.setScene(scene);
         stage.setOnCloseRequest(e -> System.exit(0));
         stage.show();
