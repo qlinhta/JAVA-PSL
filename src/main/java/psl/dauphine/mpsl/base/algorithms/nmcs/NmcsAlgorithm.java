@@ -15,7 +15,7 @@ public class NmcsAlgorithm implements JoinFiveAlgorithm {
         int level = 2;
         NmcsState state = new NmcsState(grid);
         List<Line> lines;
-        final long maxRunningTimeMs = 25 * 1000;
+        final long maxRunningTimeMs = 24 * 1000;
         final long endTimeMs = System.currentTimeMillis() + maxRunningTimeMs;
         Pair<Double, List<Line>> result = executeSearch(state, level, () -> {
 
