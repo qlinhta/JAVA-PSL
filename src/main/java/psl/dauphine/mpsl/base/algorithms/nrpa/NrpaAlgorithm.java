@@ -101,6 +101,7 @@ public class NrpaAlgorithm implements JoinFiveAlgorithm {
         }
         return actions.get(i);
     }
+
     private static <TState, TAction> NrpaPolicy<TAction> nrpaAdapt(NrpaPolicy<TAction> policy, INrpaState<TState, TAction> state, Pair<Double, List<TAction>> bestResult) {
         NrpaPolicy<TAction> polp = policy.copy();
         for (TAction action : bestResult.getValue()) {
@@ -118,3 +119,4 @@ public class NrpaAlgorithm implements JoinFiveAlgorithm {
         return polp;
     }
 }
+

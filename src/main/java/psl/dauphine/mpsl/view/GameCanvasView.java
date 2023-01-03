@@ -177,4 +177,5 @@ public class GameCanvasView implements GameObserver {
         g.setStroke(theme.numberColor());
         g.strokeText(num + "", numX, numY);
     }
+
 }
