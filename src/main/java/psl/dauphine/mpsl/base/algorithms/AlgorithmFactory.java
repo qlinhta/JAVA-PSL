@@ -1,7 +1,7 @@
 package psl.dauphine.mpsl.base.algorithms;
 
-import psl.dauphine.mpsl.base.algorithms.nmcs.NmcsAlgorithm;
-import psl.dauphine.mpsl.base.algorithms.nrpa.NrpaAlgorithm;
+import psl.dauphine.mpsl.base.algorithms.nmcs.NMCSalgorithm;
+import psl.dauphine.mpsl.base.algorithms.nrpa.NestedPolicyAlgorithm;
 
 import java.util.List;
 
@@ -28,10 +28,10 @@ public class AlgorithmFactory {
                 return new RandomSearchAlgorithm();
             }
             case "nmcs" -> {
-                return new NmcsAlgorithm();
+                return new NMCSalgorithm();
             }
             case "nrpa" -> {
-                return new NrpaAlgorithm();
+                return new NestedPolicyAlgorithm();
             }
             default -> {
                 return null;
