@@ -5,6 +5,7 @@ import psl.dauphine.mpsl.base.algorithms.RandomSearchAlgorithm;
 import psl.dauphine.mpsl.base.grid.Grid;
 import psl.dauphine.mpsl.base.grid.Line;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class NMCSstate implements InterfNMCSstate<Grid, Line> {
         newGrid.addLine(line);
         return new NMCSstate(newGrid);
     }
-
+    /*
     @Override
     public Pair<Double, List<Line>> simulation() {
         List<Line> list = new LinkedList<>();
@@ -53,4 +54,19 @@ public class NMCSstate implements InterfNMCSstate<Grid, Line> {
         }
         return new Pair<>(0.0 + grid.lines().size(), list);
     }
+     */
+
+    @Override
+    public Pair<Double, List<Line>> simulation() {
+        List<Line> list = new ArrayList<>();
+        RandomSearchAlgorithm r = new RandomSearchAlgorithm();
+        Line compLine = r.calcMove(grid);
+        while (compLine != null) {
+            list.add(compLine);
+            grid.addLine(compLine);
+            compLine = r.calcMove(grid);
+        }
+        return new Pair<>(0.0 + grid.lines().size(), list);
+    }
+
 }

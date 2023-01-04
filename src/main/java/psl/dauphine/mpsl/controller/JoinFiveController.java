@@ -241,7 +241,6 @@ public class JoinFiveController {
         final NumberAxis yAxis = new NumberAxis();
         xAxis.setLabel("Run number");
         yAxis.setLabel("Score");
-        //creating the chart
         final LineChart<Number, Number> lineChart =
                 new LineChart<>(xAxis, yAxis);
 
