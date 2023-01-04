@@ -2,16 +2,14 @@ package psl.dauphine.mpsl.base.algorithms.nrpa;
 
 import java.util.List;
 
-public interface InterfNestedPolicySearch<TState, TAction> {
+public interface InterfNestedPolicySearch<State, Action> {
     double getScore();
 
-    List<TAction> findAllLegalActions();
+    List<Action> findAllLegalActions();
 
-    InterfNestedPolicySearch<TState, TAction> takeAction(TAction action);
-
-//    Pair<Double, List<TAction>> simulation(NestedPolicySetup policy);
+    InterfNestedPolicySearch<State, Action> takeAction(Action action);
 
     boolean isTerminalPosition();
 
-    InterfNestedPolicySearch<TState, TAction> copy();
+    InterfNestedPolicySearch<State, Action> copy();
 }

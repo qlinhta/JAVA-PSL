@@ -1,5 +1,7 @@
 package psl.dauphine.mpsl.base.algorithms;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Unmodifiable;
 import psl.dauphine.mpsl.base.algorithms.nmcs.NMCSalgorithm;
 import psl.dauphine.mpsl.base.algorithms.nrpa.NestedPolicyAlgorithm;
 
@@ -10,7 +12,8 @@ import java.util.List;
  */
 public class AlgorithmFactory {
 
-    public static List<String> availableAlgorithmNames() {
+    @Contract(pure = true)
+    public static @Unmodifiable List<String> availableAlgorithmNames() {
         return List.of("Random Search", "NMCS", "NRPA");
     }
 

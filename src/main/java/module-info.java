@@ -1,6 +1,7 @@
 module psl.dauphine.mpsl {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.jetbrains.annotations;
 
 
     opens psl.dauphine.mpsl to javafx.fxml;

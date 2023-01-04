@@ -19,12 +19,9 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
         final long maxRunningTimeMs = 5 * 1000;
         final long endTimeMs = System.currentTimeMillis() + maxRunningTimeMs;
         Pair<Double, List<Line>> result = _searchNestedPolicy(new NestedPolicyState(grid), level, policy, () -> {
-
-            //System.out.println(System.currentTimeMillis() > endTimeMs);
             return System.currentTimeMillis() > endTimeMs;
         });
         List<Line> lines = result.getValue();
-        //System.out.println(lines);
         return lines.size() > 0 ? lines.get(0) : null;
     }
 
@@ -33,17 +30,16 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
         return "NRPA";
     }
 
-    public static <TState, TAction> Pair<Double, List<TAction>> _searchNestedPolicy(InterfNestedPolicySearch<TState, TAction> state,
-                                                                                    final int level, NestedPolicySetup<TAction> policy, final Supplier<Boolean> isCanceled) {
+    public static <State, Action> Pair<Double, List<Action>> _searchNestedPolicy(InterfNestedPolicySearch<State, Action> state,
+                                                                                 final int level, NestedPolicySetup<Action> policy, final Supplier<Boolean> isCanceled) {
         if (level <= 0 || isCanceled.get()) {
-            //System.out.println("level 0");
             return nrpaPlayout(state, policy);
         }
         final int N = 10;
 
-        Pair<Double, List<TAction>> bestResult = new Pair<>(0.0, new LinkedList<>());
+        Pair<Double, List<Action>> bestResult = new Pair<>(0.0, new LinkedList<>());
         for (int i = 0; i < N; i++) {
-            Pair<Double, List<TAction>> result = _searchNestedPolicy(state, level - 1, policy, isCanceled);
+            Pair<Double, List<Action>> result = _searchNestedPolicy(state, level - 1, policy, isCanceled);
             if (result.getKey() >= bestResult.getKey()) {
                 bestResult = result;
                 policy = nrpaAdapt(policy, state, bestResult);
@@ -53,13 +49,12 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
         return bestResult;
     }
 
-    private static <TAction, TState> Pair<Double, List<TAction>> nrpaPlayout(InterfNestedPolicySearch<TState, TAction> state, NestedPolicySetup<TAction> policy) {
-        List<TAction> seq = new LinkedList<>();
-        InterfNestedPolicySearch<TState, TAction> a, b;
+    private static <Action, State> Pair<Double, List<Action>> nrpaPlayout(InterfNestedPolicySearch<State, Action> state, NestedPolicySetup<Action> policy) {
+        List<Action> seq = new LinkedList<>();
+        InterfNestedPolicySearch<State, Action> a, b;
         a = state.copy();
-        TAction action;
+        Action action;
         while (!a.isTerminalPosition()) {
-            ////System.out.println("Working");
             action = nrpaSelectAction(a, policy);
             b = a.takeAction(action);
             seq.add(action);
@@ -74,23 +69,16 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
         return new Pair<>(a.getScore(), seq);
     }
 
-    private static <TAction, TState> TAction nrpaSelectAction(InterfNestedPolicySearch<TState, TAction> state, NestedPolicySetup<TAction> policy) {
-        ////System.out.println("Selecting Action");
-        List<TAction> actions = state.findAllLegalActions();
-        ////System.out.println("Found all legal actions");
+    private static <Action, State> Action nrpaSelectAction(InterfNestedPolicySearch<State, Action> state, NestedPolicySetup<Action> policy) {
+        List<Action> actions = state.findAllLegalActions();
         int i;
         double[] weights = new double[actions.size()];
         for (i = 0; i < actions.size(); i++) {
-            TAction action = actions.get(i);
-            ////System.out.println("Weight");
+            Action action = actions.get(i);
             double value = policy.get(action);
-            ////System.out.println("Exp (" + value + ")");
             weights[i] = Math.exp(value) + (i > 0 ? weights[i - 1] : 0);
-            ////System.out.println("Done Exp");
-            ////System.out.println("done weight");
         }
         double actionWeight = policy.get(actions.get(actions.size() - 1));
-        ////System.out.println("Action Weight" + actionWeight);
         double random = Math.random() * Math.exp(actionWeight);
 
         for (i = 0; i < weights.length; i++) {
@@ -101,15 +89,15 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
         return actions.get(i);
     }
 
-    private static <TState, TAction> NestedPolicySetup<TAction> nrpaAdapt(NestedPolicySetup<TAction> policy, InterfNestedPolicySearch<TState, TAction> state, Pair<Double, List<TAction>> bestResult) {
-        NestedPolicySetup<TAction> polp = policy.copy();
-        for (TAction action : bestResult.getValue()) {
+    private static <State, Action> NestedPolicySetup<Action> nrpaAdapt(NestedPolicySetup<Action> policy, InterfNestedPolicySearch<State, Action> state, Pair<Double, List<Action>> bestResult) {
+        NestedPolicySetup<Action> polp = policy.copy();
+        for (Action action : bestResult.getValue()) {
             polp.set(action, polp.get(action) + ALPHA);
             double z = 0;
-            for (TAction m : state.findAllLegalActions()) {
+            for (Action m : state.findAllLegalActions()) {
                 z = z + Math.exp(policy.get(m));
             }
-            for (TAction m : state.findAllLegalActions()) {
+            for (Action m : state.findAllLegalActions()) {
                 double newValue = polp.get(m) - ALPHA * Math.exp(policy.get(m)) / z;
                 polp.set(m, newValue);
             }
