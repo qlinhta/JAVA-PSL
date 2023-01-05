@@ -1,13 +1,10 @@
 package psl.dauphine.mpsl.base.grid;
 
+import psl.dauphine.mpsl.base.algorithms.RandomSearchAlgorithm;
+
 import java.io.Serializable;
 import java.util.*;
 
-/**
- * The Game grid
- *
- * @Todo write documentation
- */
 public class Grid implements Serializable {
     private final GridPoint[][] grid;
 
@@ -235,4 +232,5 @@ public class Grid implements Serializable {
         }
         lines.remove(line);
     }
+
 }

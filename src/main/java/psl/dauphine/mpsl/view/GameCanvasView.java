@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GameCanvasView implements GameObserver {
 
-    private Canvas canvas;
+    private final Canvas canvas;
 
     private static final int CELL_WIDTH = 25;
     private static final int CELL_HEIGHT = 25;
@@ -126,7 +126,7 @@ public class GameCanvasView implements GameObserver {
 
 //        g.setFill(Color.valueOf("#0C3547"));
         g.setFill(theme.lineColor());
-        double radius = 5;
+        double radius = 4;
         g.setStroke(theme.lineColor());
         grid.lines().forEach(line -> drawLine(line, g));
         g.setFill(theme.pointColor());
