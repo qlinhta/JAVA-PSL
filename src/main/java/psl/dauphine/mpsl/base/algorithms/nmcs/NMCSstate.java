@@ -6,7 +6,6 @@ import psl.dauphine.mpsl.base.grid.Grid;
 import psl.dauphine.mpsl.base.grid.Line;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class NMCSstate implements InterfNMCSstate<Grid, Line> {

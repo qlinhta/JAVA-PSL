@@ -11,19 +11,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
 
 public class NMCSalgorithm implements JoinFiveAlgorithm {
-    
+
     /**
      * Calculates the best move for the current game grid.
      *
      * @param grid the current game grid
      * @return the best move for the current game, or null if no moves are available
      */
-	@Override
+
     public Line calcMove(Grid grid) {
         int level = 2;
         NMCSstate state = new NMCSstate(grid);
         List<Line> lines;
-        final long maxRunningTimeMs = 2 * 1000;
+        final long maxRunningTimeMs = 30 * 1000;
         final long endTimeMs = System.currentTimeMillis() + maxRunningTimeMs;
         Pair<Double, List<Line>> result = _searchMS(state, level, () -> {
             System.out.println(System.currentTimeMillis() > endTimeMs);
@@ -49,11 +49,24 @@ public class NMCSalgorithm implements JoinFiveAlgorithm {
      * @return a pair containing the score for the best move and the list of actions to reach that move
      */
 
+    /**
+     * Performs a Monte Carlo search to find the best move for a given game state.
+     *
+     * @param state      the current game state
+     * @param level      the depth of the search
+     * @param isCanceled a supplier that returns true if the search should be canceled
+     * @param <State>    the type of the game state
+     * @param <Action>   the type of the game actions
+     * @return a pair containing the score for the best move and the list of actions to reach that move
+     */
+
     public static <State, Action> Pair<Double, List<Action>> _searchMS(InterfNMCSstate<State, Action> state,
                                                                        final int level, final Supplier<Boolean> isCanceled) {
-        if (level <= 0)
+        if (level <= 0) {
             return state.simulation();
-        AtomicReference<Pair<Double, List<Action>>> globalBestResult = new AtomicReference<>(new Pair<>(state.getScore(), new LinkedList<>()));
+        }
+        AtomicReference<Pair<Double, List<Action>>> globalBestResult;
+        globalBestResult = new AtomicReference<>(new Pair<>(state.getScore(), new LinkedList<>()));
         final List<Action> visitedNodes = new LinkedList<>();
         while (!(state.isTerminalPosition() || isCanceled.get())) {
             Pair<Double, List<Action>> actualBestResult = new Pair<>(0.0, new LinkedList<>());
@@ -79,3 +92,4 @@ public class NMCSalgorithm implements JoinFiveAlgorithm {
         return globalBestResult.get();
     }
 }
+

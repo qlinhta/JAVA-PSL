@@ -230,4 +230,5 @@ public class Grid implements Serializable {
         }
         lines.remove(line);
     }
+
 }

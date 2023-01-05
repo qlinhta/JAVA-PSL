@@ -12,7 +12,7 @@ import java.util.List;
 
 public class GameCanvasView implements GameObserver {
 
-    private Canvas canvas;
+    private final Canvas canvas;
 
     private static final int CELL_WIDTH = 25;
     private static final int CELL_HEIGHT = 25;
