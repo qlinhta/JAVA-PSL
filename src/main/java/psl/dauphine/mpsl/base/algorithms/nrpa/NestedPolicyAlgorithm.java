@@ -29,20 +29,6 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
     public String getName() {
         return "NRPA";
     }
-    
-    /**
-     * Performs a nested policy search on the given state. The search continues until the specified level is reached or the
-     * cancellation supplier returns true. At each level, the method iteratively performs NRPA playouts and adapts the
-     * policy using the NRPA adaptation method. The best result from all playouts is returned.
-     *
-     * @param state      The state to perform the search on.
-     * @param level      The level to search to.
-     * @param policy     The policy to use for the search.
-     * @param isCanceled A supplier that returns true if the search should be canceled.
-     * @param <State>    The type of the state.
-     * @param <Action>   The type of the actions.
-     * @return A pair containing the score of the best result and the list of actions leading to that result.
-     */
 
     /**
      * Performs a nested policy search on the given state. The search continues until the specified level is reached or the
@@ -110,13 +96,6 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
      * @return the selected action
      */
 
-    /**
-     * Selects an action from the available legal actions using the given policy.
-     *
-     * @param state  the current state of the game
-     * @param policy the policy to use for action selection
-     * @return the selected action
-     */
     private static <Action, State> Action nrpaSelectAction(InterfNestedPolicySearch<State, Action> state, NestedPolicySetup<Action> policy) {
         List<Action> actions = state.findAllLegalActions();
         int i;
@@ -146,14 +125,6 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
      * @return the adapted policy
      */
 
-    /**
-     * Adapts the given policy based on the best result obtained from a playout.
-     *
-     * @param policy     the policy to adapt
-     * @param state      the current state of the game
-     * @param bestResult the best result obtained from a playout
-     * @return the adapted policy
-     */
     private static <State, Action> NestedPolicySetup<Action> nrpaAdapt(NestedPolicySetup<Action> policy, InterfNestedPolicySearch<State, Action> state, Pair<Double, List<Action>> bestResult) {
         NestedPolicySetup<Action> polp = policy.copy();
         for (Action action : bestResult.getValue()) {
