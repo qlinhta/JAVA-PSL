@@ -11,7 +11,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
 
 public class NMCSalgorithm implements JoinFiveAlgorithm {
-    @Override
+    
+    /**
+     * Calculates the best move for the current game grid.
+     *
+     * @param grid the current game grid
+     * @return the best move for the current game, or null if no moves are available
+     */
+	@Override
     public Line calcMove(Grid grid) {
         int level = 2;
         NMCSstate state = new NMCSstate(grid);
@@ -30,6 +37,17 @@ public class NMCSalgorithm implements JoinFiveAlgorithm {
     public String getName() {
         return "NMCS";
     }
+    
+    /**
+     * Performs a Monte Carlo search to find the best move for a given game state.
+     *
+     * @param state      the current game state
+     * @param level      the depth of the search
+     * @param isCanceled a supplier that returns true if the search should be canceled
+     * @param <State>    the type of the game state
+     * @param <Action>   the type of the game actions
+     * @return a pair containing the score for the best move and the list of actions to reach that move
+     */
 
     public static <State, Action> Pair<Double, List<Action>> _searchMS(InterfNMCSstate<State, Action> state,
                                                                        final int level, final Supplier<Boolean> isCanceled) {
