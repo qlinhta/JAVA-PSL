@@ -18,4 +18,6 @@ module psl.dauphine.mpsl {
     opens psl.dauphine.mpsl.view to javafx.fxml;
     exports psl.dauphine.mpsl.util;
     opens psl.dauphine.mpsl.util to javafx.fxml;
+    exports psl.dauphine.mpsl.base.algorithms.nmcs;
+    opens psl.dauphine.mpsl.base.algorithms.nmcs to javafx.fxml;
 }
