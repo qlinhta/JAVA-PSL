@@ -46,7 +46,6 @@ public class Grid implements Serializable {
 
     public List<Line> possibleLines(int x, int y) {
         if (!isValidX(x) || !isValidY(y) || grid[x][y] != null) {
-//            System.out.println(grid[x][y]);
             return new ArrayList<>();
         }
         ArrayList<Line> possibleLines = new ArrayList<>();
@@ -115,7 +114,7 @@ public class Grid implements Serializable {
                 line.setDirection(direction);
                 possibleLines.add(line);
             }
-//            System.out.println();
+
         }
         return possibleLines;
     }
@@ -148,7 +147,7 @@ public class Grid implements Serializable {
                 initPoint(startX + i, startY + j);
             }
         }
-//        System.out.println(lines);
+
     }
 
     public void addLine(List<Point> points, Direction direction) {
@@ -165,10 +164,9 @@ public class Grid implements Serializable {
 
     public void addLine(Line line) {
         line.setNumber(lines.size() + 1);
-        //            System.out.println("CHECKING " + point);
+ 
         line.points().forEach(point -> {
             if (grid[point.x][point.y] == null) {
-//                System.out.println("FOUND " + point);
                 initPoint(point.x, point.y);
                 line.setNewPoint(grid[point.x][point.y]);
             }

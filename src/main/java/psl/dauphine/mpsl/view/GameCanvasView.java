@@ -93,7 +93,8 @@ public class GameCanvasView implements GameObserver {
         canvas.setHeight(height);
     }
 
-    public void update(Grid grid, List<Point> highlightPoints, List<Line> highlightLines) {
+    @Override
+	public void update(Grid grid, List<Point> highlightPoints, List<Line> highlightLines) {
         GraphicsContext g = canvas.getGraphicsContext2D();
         g.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
@@ -102,18 +103,15 @@ public class GameCanvasView implements GameObserver {
         g.strokeRect(0, 0, canvas.getWidth(), canvas.getHeight());
         System.out.println(canvas.getWidth() + ", " + canvas.getHeight());
         g.setLineWidth(1);
-//        g.setStroke(Color.valueOf("#AFD8F8"));
         g.setStroke(theme.bgLineColor());
         g.setLineWidth(1);
         for (double gridX = 0; gridX < grid.width(); gridX++) {
-//            g.strokeRect(0,0,width,height);
             double x1 = snap(offX + gridX * CELL_WIDTH);
             double y1 = snap(offY);
             double x2 = snap(offX + gridX * CELL_WIDTH);
             double y2 = snap(offY + (grid.height() - 1) * CELL_HEIGHT);
 
             g.strokeLine(x1, y1, x2, y2);
-//            drawLine(offX + 0, offY + gridY * cellHeight, offX + gridX * cellWidth, offY + height * cellHeight, g);
         }
 
         for (double gridY = 0; gridY < grid.height(); gridY++) {
@@ -124,7 +122,7 @@ public class GameCanvasView implements GameObserver {
             g.strokeLine(x1, y1, x2, y2);
         }
 
-//        g.setFill(Color.valueOf("#0C3547"));
+
         g.setFill(theme.lineColor());
         double radius = 4;
         g.setStroke(theme.lineColor());
@@ -136,7 +134,6 @@ public class GameCanvasView implements GameObserver {
 
         g.setStroke(theme.lineColor());
         grid.lines().forEach(line -> drawNumberedPoint(line.getNewPoint(), line.getNumber(), g));
-//        g.setFill(Color.YELLOW);
         g.setFill(theme.highlightColor());
         highlightPoints.forEach(point -> {
             g.fillOval(offX + CELL_WIDTH * point.x - radius, offY + CELL_HEIGHT * point.y - radius, 2 * radius, 2 * radius);
@@ -145,7 +142,7 @@ public class GameCanvasView implements GameObserver {
         g.setStroke(theme.highlightColor());
         highlightLines.forEach(line -> drawLine(line, g));
 
-//        System.out.println("Drawing");
+
     }
 
     private double snap(double num) {
@@ -153,14 +150,12 @@ public class GameCanvasView implements GameObserver {
     }
 
     private void drawLine(Line line, GraphicsContext g) {
-//        g.setStroke(Color.valueOf("#0C3547"));
         g.setLineWidth(2);
         Point p1 = line.points().get(0);
         Point p2 = line.points().get(line.points().size() - 1);
 
         g.strokeLine(offX + CELL_HEIGHT * p1.x, offY + CELL_HEIGHT * p1.y, offX + CELL_WIDTH * p2.x, offY + CELL_HEIGHT * p2.y);
 
-//        g.setFill(Color.valueOf("#0C3547"));
     }
 
     private void drawNumberedPoint(Point p, int num, GraphicsContext g) {
@@ -173,7 +168,6 @@ public class GameCanvasView implements GameObserver {
         g.setFill(theme.pointColor());
         g.fillOval(centerX, centerY, radius * 2, radius * 2);
         g.setLineWidth(1);
-//        g.setStroke(Color.WHITE);
         g.setStroke(theme.numberColor());
         g.strokeText(num + "", numX, numY);
     }
