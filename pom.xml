@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>psl.dauphine</groupId>
+    <groupId>psl.dauphine.mpsl</groupId>
     <artifactId>MPSL</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>MPSL</name>
@@ -84,9 +84,8 @@
                 <version>3.7.1</version>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <release>18</release>
                     <source>18</source>
