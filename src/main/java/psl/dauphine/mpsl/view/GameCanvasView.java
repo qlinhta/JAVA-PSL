@@ -93,7 +93,8 @@ public class GameCanvasView implements GameObserver {
         canvas.setHeight(height);
     }
 
-    public void update(Grid grid, List<Point> highlightPoints, List<Line> highlightLines) {
+    @Override
+	public void update(Grid grid, List<Point> highlightPoints, List<Line> highlightLines) {
         GraphicsContext g = canvas.getGraphicsContext2D();
         g.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
