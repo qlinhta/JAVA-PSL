@@ -16,7 +16,6 @@ public class JoinFiveApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(JoinFiveApplication.class.getResource("joinfive-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), GameCanvasView.WIDTH + 20, GameCanvasView.HEIGHT + 100);
         JoinFiveController controller = fxmlLoader.getController();
-
         GameModel gameModel = new GameModel();
         controller.setModel(gameModel);
         controller.start();

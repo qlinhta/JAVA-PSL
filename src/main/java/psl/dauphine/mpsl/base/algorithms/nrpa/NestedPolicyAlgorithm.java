@@ -14,9 +14,9 @@ public class NestedPolicyAlgorithm implements JoinFiveAlgorithm {
 
     @Override
     public Line calcMove(Grid grid) {
-        int level = 3;
+        int level = 5;
         NestedPolicySetup<Line> policy = new NestedPolicySetup<>();
-        final long maxRunningTimeMs = 300 * 1000;
+        final long maxRunningTimeMs = 60 * 1000;
         final long endTimeMs = System.currentTimeMillis() + maxRunningTimeMs;
         Pair<Double, List<Line>> result = _searchNestedPolicy(new NestedPolicyState(grid), level, policy, () -> {
             return System.currentTimeMillis() > endTimeMs;
