@@ -32,35 +32,6 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/iq80/snappy/snappy/0.4/snappy-0.4.jar" path-in-jar="/" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:19" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:mac-aarch64:19" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:19" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:mac-aarch64:19" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:19" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:mac-aarch64:19" />
-      <element id="library" level="project" name="Maven: eu.hansolo.fx:charts:17.1.25" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.2" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:mac-aarch64:17.0.2" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-swing:17.0.2" />
-      <element id="library" level="project" name="Maven: org.openjfx:javafx-swing:mac-aarch64:17.0.2" />
-      <element id="library" level="project" name="Maven: eu.hansolo:toolbox:17.0.26" />
-      <element id="library" level="project" name="Maven: eu.hansolo:toolboxfx:17.0.30" />
-      <element id="library" level="project" name="Maven: eu.hansolo.fx:heatmap:17.0.12" />
-      <element id="library" level="project" name="Maven: eu.hansolo.fx:countries:17.0.23" />
-      <element id="library" level="project" name="Maven: org.apache.maven.plugins:maven-jar-plugin:maven-plugin:3.3.0" />
-      <element id="library" level="project" name="Maven: org.apache.maven.shared:file-management:3.1.0" />
-      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.36" />
-      <element id="library" level="project" name="Maven: commons-io:commons-io:2.11.0" />
-      <element id="library" level="project" name="Maven: org.apache.maven:maven-archiver:3.6.0" />
-      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-io:3.4.0" />
-      <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
-      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-archiver:4.4.0" />
-      <element id="library" level="project" name="Maven: org.apache.commons:commons-compress:1.21" />
-      <element id="library" level="project" name="Maven: org.iq80.snappy:snappy:0.4" />
-      <element id="library" level="project" name="Maven: org.tukaani:xz:1.9" />
-      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-interpolation:1.26" />
-      <element id="library" level="project" name="Maven: org.codehaus.plexus:plexus-utils:3.4.2" />
-      <element id="library" level="project" name="Maven: org.jetbrains:annotations:23.0.0" />
     </root>
   </artifact>
 </component>
