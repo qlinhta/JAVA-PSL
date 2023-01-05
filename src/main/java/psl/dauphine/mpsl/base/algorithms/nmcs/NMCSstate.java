@@ -38,23 +38,7 @@ public class NMCSstate implements InterfNMCSstate<Grid, Line> {
         newGrid.addLine(line);
         return new NMCSstate(newGrid);
     }
-    /*
-    @Override
-    public Pair<Double, List<Line>> simulation() {
-        List<Line> list = new LinkedList<>();
-        RandomSearchAlgorithm r = new RandomSearchAlgorithm();
-        while (true) {
 
-            Line compLine = r.calcMove(grid);
-            if (compLine == null) {
-                break;
-            }
-            list.add(compLine);
-            grid.addLine(compLine);
-        }
-        return new Pair<>(0.0 + grid.lines().size(), list);
-    }
-     */
 
     @Override
     public Pair<Double, List<Line>> simulation() {
