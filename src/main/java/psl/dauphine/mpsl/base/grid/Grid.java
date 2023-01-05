@@ -164,7 +164,7 @@ public class Grid implements Serializable {
 
     public void addLine(Line line) {
         line.setNumber(lines.size() + 1);
- 
+
         line.points().forEach(point -> {
             if (grid[point.x][point.y] == null) {
                 initPoint(point.x, point.y);
@@ -221,10 +221,10 @@ public class Grid implements Serializable {
     }
 
     public void undoLine() {
-        Line line = lines.get(lines.size()-1);
+        Line line = lines.get(lines.size() - 1);
         deletePoint(line.getNewPoint());
         for (Point point : line.points()) {
-            if(grid[point.x][point.y] !=null) {
+            if (grid[point.x][point.y] != null) {
                 grid[point.x][point.y].unlock(line.getDirection());
             }
         }
